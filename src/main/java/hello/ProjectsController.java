@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.client.RestTemplate;
 
+import java.net.URI;
+
 @Controller
 public class ProjectsController {
 
@@ -20,6 +22,9 @@ public class ProjectsController {
 
     @PostMapping("/projects")
     public String createProject(@ModelAttribute Project project) {
+        RestTemplate restTemplate = new RestTemplate();
+        URI uri = restTemplate.postForLocation("http://localhost:8080/projects", project);
+        System.out.println("uri = " + uri);
         return "redirect:/projects";
     }
 
