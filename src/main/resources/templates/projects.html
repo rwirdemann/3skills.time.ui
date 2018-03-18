@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}"/>
+</head>
+
+<body>
+<div th:insert="~{fragments/header :: menu}"></div>
+
+<h1>Alle Projekte</h1>
+<a href="/project">Neues Projekt...</a>
+<ul>
+    <li th:each="prod: ${projects}">
+        <td th:text="${prod.name}">Oranges</td>
+    </li>
+</ul>
+
+<div th:insert="~{fragments/footer :: copy}"></div>
+</body>
+
+</html>
