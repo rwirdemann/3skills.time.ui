@@ -17,6 +17,7 @@ public class ProjectsController {
         RestTemplate restTemplate = new RestTemplate();
         Project[] response = restTemplate.getForObject("http://localhost:8080/projects", Project[].class);
         model.addAttribute("projects", response);
+
         return "projects";
     }
 

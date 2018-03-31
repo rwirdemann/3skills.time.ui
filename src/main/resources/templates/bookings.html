@@ -1,25 +1,17 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-<html>
-
-<head>
-    <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}"/>
-</head>
-
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:include="layout :: page">
 <body>
-<div th:insert="~{fragments/header :: menu}"></div>
-
-<h1>Alle Buchungen</h1>
-<a href="/booking">Neue Buchung...</a>
-<ul>
-    <li th:each="b: ${bookings}">
-        <td th:text="${b.description}">Oranges</td>
-    </li>
-</ul>
-
-<div th:insert="~{fragments/footer :: copy}"></div>
+<div th:fragment="content">
+    <h1>Alle Buchungen</h1>
+    <a href="/booking">Neue Buchung...</a>
+    <ul>
+        <li th:each="b: ${bookings}">
+            <td th:text="${b.description}">Oranges</td>
+        </li>
+    </ul>
+</div>
 </body>
-
 </html>
+
