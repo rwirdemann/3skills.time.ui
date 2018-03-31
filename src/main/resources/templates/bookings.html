@@ -4,8 +4,6 @@
       th:include="layout :: page">
 <body>
 <div th:fragment="content">
-    <h1>Alle Buchungen</h1>
-    <a href="/booking">Neue Buchung...</a>
     <ul>
         <li th:each="b: ${bookings}">
             <td th:text="${b.description}">Oranges</td>

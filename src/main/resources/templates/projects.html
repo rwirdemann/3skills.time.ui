@@ -4,8 +4,6 @@
       th:include="layout :: page">
     <body>
         <div th:fragment="content">
-            <h1>Alle Projekte</h1>
-            <a href="/project">Neues Projekt...</a>
             <ul>
                 <li th:each="prod: ${projects}">
                     <td th:text="${prod.name}">Oranges</td>
