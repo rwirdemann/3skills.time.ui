@@ -15,7 +15,7 @@ public class ProjectsController {
     @GetMapping("/projects")
     public String projects(Model model) {
         RestTemplate restTemplate = new RestTemplate();
-        Project[] response = restTemplate.getForObject("http://localhost:8080/projects", Project[].class);
+        Project[] response = restTemplate.getForObject("http://localhost:8190/projects", Project[].class);
         model.addAttribute("projects", response);
 
         return "projects";
@@ -24,7 +24,7 @@ public class ProjectsController {
     @PostMapping("/projects")
     public String createProject(@ModelAttribute Project project) {
         RestTemplate restTemplate = new RestTemplate();
-        URI uri = restTemplate.postForLocation("http://localhost:8080/projects", project);
+        URI uri = restTemplate.postForLocation("http://localhost:8190/projects", project);
         System.out.println("uri = " + uri);
         return "redirect:/projects";
     }

@@ -29,7 +29,7 @@ public class BookingsController {
         model.addAttribute("booking", new Booking());
 
         RestTemplate restTemplate = new RestTemplate();
-        Project[] response = restTemplate.getForObject("http://localhost:8080/projects", Project[].class);
+        Project[] response = restTemplate.getForObject("http://localhost:8190/projects", Project[].class);
         model.addAttribute("projects", response);
 
         return "booking";
@@ -38,7 +38,7 @@ public class BookingsController {
     @PostMapping("/bookings")
     public String createBooking(@ModelAttribute Booking booking) {
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://localhost:8080/projects/" + booking.getProjectId() + "/bookings";
+        String url = "http://localhost:8190/projects/" + booking.getProjectId() + "/bookings";
         restTemplate.postForLocation(url, booking);
         return "redirect:/bookings";
     }

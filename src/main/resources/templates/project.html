@@ -6,7 +6,7 @@
         <div th:fragment="content">
             <h1>Neues Projekt</h1>
             <form action="#" th:action="@{/projects}" th:object="${project}" method="post">
-                <p>Name: <input type="text" th:field="*{name}" autofocus/></p>
+                <p>Name: <input type="text" th:field="*{name}" autofocus="true" /></p>
                 <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
             </form>
         </div>

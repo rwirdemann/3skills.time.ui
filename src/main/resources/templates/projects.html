@@ -4,11 +4,16 @@
       th:include="layout :: page">
     <body>
         <div th:fragment="content">
-            <ul>
-                <li th:each="prod: ${projects}">
-                    <td th:text="${prod.name}">Oranges</td>
-                </li>
-            </ul>
+            <table>
+                <tr th:each="prod: ${projects}">
+                    <td th:text="${prod.name}"></td>
+                    <td>
+                        <span th:each="ops: ${prod.operations}">
+                            <a th:href="@{${ops.href}}"><span th:text="${ops.rel}"></span></a>
+                        </span>
+                    </td>
+                </tr>
+            </table>
         </div>
     </body>
 </html>

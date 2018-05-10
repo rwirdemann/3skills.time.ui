@@ -11,7 +11,7 @@ public class BookingsService {
 
     public List<Booking> allBookings() {
         RestTemplate restTemplate = new RestTemplate();
-        Booking[] response = restTemplate.getForObject("http://localhost:8080/projects/1/bookings", Booking[].class);
+        Booking[] response = restTemplate.getForObject("http://localhost:8190/projects/1/bookings", Booking[].class);
         return Arrays.asList(response);
     }
 }
